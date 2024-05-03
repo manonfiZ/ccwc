@@ -10,9 +10,9 @@ fi
 
 if [ -n "$data" ] ;
 then
-    tempFile=$(mktemp)
-    cat > $tempFile
-    python3 ./main.py  $tempFile $1
+    temp_file=$(mktemp)
+    cat > $temp_file
+    python3 ./main.py  $temp_file $1
 else
     python3 ./main.py  $1 $2
 fi

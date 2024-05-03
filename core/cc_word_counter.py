@@ -1,3 +1,4 @@
+from os import stat
 class CcWC:
 
     def __init__(self, file) -> None:
@@ -13,9 +14,10 @@ class CcWC:
         Raises:
             FileNotFoundError: If the file cannot be found.
         """
-        with open(self.file, 'r') as f:
-            return len(f.read())
-    
+        stats = stat(self.file)
+        
+        return stats.st_size
+
     def count_lines(self):
         """
         Counts the number of lines in the file associated with this object.

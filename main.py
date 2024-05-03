@@ -6,7 +6,7 @@ def main ( ) :
     args = parser.args
 
     ccwc = CcWC(args.file)
-    output = "\t{} "
+    output = "  {} "
 
     output += str(args.file)   if ".txt"  in  str(args.file) else " "
 
@@ -20,7 +20,7 @@ def main ( ) :
         elif args.chars:
             output=  output.format(ccwc.count_chars())
         else:
-            output =  output.format(str(ccwc.count_bytes()) + " " + str(ccwc.count_lines() )+ " " + str(ccwc.count_words()))
+            output =  output.format(str(ccwc.count_lines() )+ " " + str(ccwc.count_words()) + " " +str(ccwc.count_bytes()))
 
         print(output)
 
