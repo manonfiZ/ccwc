@@ -1,4 +1,5 @@
 from os import stat
+import codecs
 class CcWC:
 
     def __init__(self, file) -> None:
@@ -51,7 +52,5 @@ class CcWC:
         Raises:
             FileNotFoundError: If the file cannot be found.
         """
-        with open(self.file, 'r') as f:
+        with codecs.open(self.file, "r", encoding="utf-8") as f:
             return len(f.read())
-
-

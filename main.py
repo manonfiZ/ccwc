@@ -25,7 +25,7 @@ def main ( ) :
         print(output)
 
     except FileNotFoundError:
-        print ("No such file or directory : {}".format(args.file))
+        print (f"No such file or directory : {args.file}")
 
 if __name__ == '__main__' :
     main()

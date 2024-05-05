@@ -1,18 +1,12 @@
 #!/bin/bash
 
-read data
-
-exit_code=$?
-
-if [ $exit_code -ne 0 ]; then
-    exit $exit_code
-fi
-
-if [ -n "$data" ] ;
+if [ -f "$2" ] || [ -f "$1" ];
 then
-    temp_file=$(mktemp)
-    cat > $temp_file
-    python3 ./main.py  $temp_file $1
-else
     python3 ./main.py  $1 $2
+else
+    temp_file=$(mktemp)
+    file_content=$(cat)
+
+    echo "$file_content" > $temp_file
+    python3 ./main.py  $temp_file $1
 fi
